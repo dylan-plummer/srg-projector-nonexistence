@@ -140,6 +140,11 @@ def main():
             print(f'   {"adjacent" if adj else "non-adjacent"} pair: E_33 = {z}  ->  ' +
                   ('NOT AN EVEN INTEGER: contradiction' if z.denominator != 1 or z % 2 else 'integral'))
             assert z.denominator != 1
+        # Sims' relation for the 4-vertex parameters alpha = z_adj/2, beta = z_non/2 (BvM Prop. 8.16.1)
+        al, be = forced_z(*p, True)[0] / 2, forced_z(*p, False)[0] / 2
+        lhs, rhs = k * (F(lam * (lam - 1), 2) - al), be * (n - k - 1)
+        assert lhs == rhs
+        print(f'   Sims relation k(C(lam,2) - alpha) = beta(n-k-1): both sides {lhs}')
     print('== Control: triangular graphs T(m), all pairs')
     total = 0
     for m in range(5, 13):

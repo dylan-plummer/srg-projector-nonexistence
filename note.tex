@@ -21,7 +21,7 @@ is the multiplicity of the positive eigenvalue $r$. The proof uses only this coi
 
 \paragraph{The identity.}
 Let $\Gamma$ be an $\mathrm{srg}(n,k,\lambda,\mu)$ with adjacency matrix $A$, and let $p_1,\dots,p_n\in\mathbb R^d$ be the
-unit vectors of its normalised embedding in the $r$-eigenspace. Their Gram matrix is $G=(1-a)I+(b-a)A+aJ$ with
+unit vectors of its normalised embedding in the $r$-eigenspace~\cite[\S1.3.5]{BvM}, \cite{DGS}. Their Gram matrix is $G=(1-a)I+(b-a)A+aJ$ with
 $b=r/k$ and $a=-(r+1)/(n-k-1)$, and $G^2=(n/d)G$. In $\Sym_d$ with $\langle X,Y\rangle=\operatorname{tr}XY$, the
 projectors $Q_x=p_xp_x^{\mathsf T}$ have Gram matrix
 \[ H=G\circ G=(1-a^2)I+(b^2-a^2)A+a^2J. \]
@@ -74,13 +74,33 @@ $(n-2k+\lambda,\,k-1-\lambda,\,k-1-\lambda,\,\lambda)$ and $g_i=g_j=b$, give a s
 \qed
 
 \paragraph{Remarks.}
-For a non-adjacent pair, the forced value of $z$ is Sims' four-vertex count; see Brouwer and Van Maldeghem,
-\emph{Strongly Regular Graphs}, \S8.16. Here it is forced only by $n=\dim\Sym_d$. If $n<d(d+1)/2$, the same computation
+In this situation every graph with these parameters would satisfy the $4$-vertex condition of Hestenes and
+Higman~\cite{HH}: the number of edges among the common neighbours of $x$ and $y$ would be $\alpha$ for adjacent and $\beta$ for
+non-adjacent $x,y$, half the two forced values of $z$ in the table. The forced values satisfy Sims' relation
+$k\bigl(\binom\lambda2-\alpha\bigr)=\beta(n-k-1)$~\cite[Proposition~8.16.1]{BvM}, with both sides equal to $8896680$ and
+$67375638/5$ respectively. The contradiction is that $\alpha$ and $\beta$ are not integers. The condition $n=d(d+1)/2$ sits below the absolute bound
+$n\le d(d+3)/2$~\cite{DGS}, \cite[\S1.3.7]{BvM}, \cite{CGS}. If $n<d(d+1)/2$, the same computation
 gives Bessel's inequality $\langle R,R\rangle\ge g^{\mathsf T}H^{-1}g$, a one-sided bound on $z$. The program
 \texttt{verify.py} (Python standard library, exact rational arithmetic) checks every number above. It also checks the
 cell equations and the identity of the lemma on all $5988$ vertex pairs of the triangular graphs $T(5),\dots,T(12)$,
-which satisfy $n=d(d+1)/2$. Both parameter sets were listed as open in Brouwer's table on 19 November 2026.
+which satisfy $n=d(d+1)/2$. Both parameter sets were listed as open in Brouwer's table~\cite{table} on 19 November 2026.
 
-\paragraph{Use of AI.} The argument was found by an AI research agent working on the author's project, and its numbers
-were re-derived independently with Claude (Anthropic); the author is responsible for the content.
+\paragraph{Use of AI.} The proof was found by GPT 6.1 Sol (OpenAI), an AI research agent working on the author's project.
+It was independently re-derived and audited, and the verification program was written, by Claude Opus 5.5
+(Anthropic). The author is responsible for the content.
+
+\begin{thebibliography}{9}
+\bibitem{BvM} A.~E. Brouwer and H. Van Maldeghem, \emph{Strongly Regular Graphs}, Encyclopedia of Mathematics and
+its Applications 182, Cambridge University Press, 2022.
+\bibitem{table} A.~E. Brouwer, \emph{Parameters of strongly regular graphs},
+\url{https://aeb.win.tue.nl/graphs/srg/srgtab.html} (pages for $1051\le v\le1100$ and $1251\le v\le1300$),
+accessed 19 November 2026.
+\bibitem{CGS} P.~J. Cameron, J.~M. Goethals and J.~J. Seidel, Strongly regular graphs having strongly regular
+subconstituents, \emph{J. Algebra} 55 (1978), 257--280.
+\bibitem{DGS} P. Delsarte, J.~M. Goethals and J.~J. Seidel, Spherical codes and designs, \emph{Geom. Dedicata} 6
+(1977), 363--388.
+\bibitem{HH} M.~D. Hestenes and D.~G. Higman, Rank 3 groups and strongly regular graphs, in: \emph{Computers in
+Algebra and Number Theory} (G. Birkhoff and M. Hall, Jr., eds.), SIAM-AMS Proc. IV, Amer. Math. Soc., Providence, RI,
+1971, pp.~141--159.
+\end{thebibliography}
 \end{document}
