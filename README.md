@@ -1,4 +1,4 @@
-# Two strongly regular graphs that do not exist
+# Strongly regular graphs with parameters (1275,546,281,198) and (1081,594,359,286) do not exist
 
 A short note proving that there are no strongly regular graphs with parameters (1275,546,281,198) or
 (1081,594,359,286), and therefore none with the complementary parameters (1275,728,379,464) or (1081,486,177,252).
@@ -10,7 +10,7 @@ neighbours of a vertex pair.
 
 | file | contents |
 |---|---|
-| `note.tex`, `note.pdf` | the note (2 pages) |
+| `note.tex`, `note.pdf` | the note (about 2.5 pages, self-contained for a reader with linear algebra) |
 | `verify.py` | exact check of every number in the note, and of the identity on all 5988 vertex pairs of T(5), ..., T(12); Python 3 standard library only |
 
 ```
