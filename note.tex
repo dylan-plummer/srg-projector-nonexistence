@@ -1,0 +1,86 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newcommand{\Sym}{\mathrm{Sym}}
+\title{Two strongly regular graphs that do not exist}
+\author{Dylan Plummer}
+\date{19 November 2026}
+\begin{document}
+\maketitle
+
+\begin{theorem}
+There are no strongly regular graphs with parameters
+\[(1275,546,281,198)\qquad\text{or}\qquad(1081,594,359,286),\]
+and hence none with the complementary parameters $(1275,728,379,464)$ or $(1081,486,177,252)$.
+\end{theorem}
+
+The spectra are $546^1\,87^{50}\,(-4)^{1224}$ and $594^1\,77^{46}\,(-4)^{1034}$. In both cases $n=d(d+1)/2$, where $d$
+is the multiplicity of the positive eigenvalue $r$. The proof uses only this coincidence.
+
+\paragraph{The identity.}
+Let $\Gamma$ be an $\mathrm{srg}(n,k,\lambda,\mu)$ with adjacency matrix $A$, and let $p_1,\dots,p_n\in\mathbb R^d$ be the
+unit vectors of its normalised embedding in the $r$-eigenspace. Their Gram matrix is $G=(1-a)I+(b-a)A+aJ$ with
+$b=r/k$ and $a=-(r+1)/(n-k-1)$, and $G^2=(n/d)G$. In $\Sym_d$ with $\langle X,Y\rangle=\operatorname{tr}XY$, the
+projectors $Q_x=p_xp_x^{\mathsf T}$ have Gram matrix
+\[ H=G\circ G=(1-a^2)I+(b^2-a^2)A+a^2J. \]
+
+\begin{lemma}
+If $n=d(d+1)/2$ and $H$ is positive definite, write $H^{-1}=uI+vA+wJ$. Then for any two vertices $i\ne j$, with
+$\gamma=\langle p_i,p_j\rangle$ and $g_x=\langle p_i,p_x\rangle\langle p_j,p_x\rangle$,
+\[ u\sum_x g_x^2+v\sum_{x,y}A_{xy}\,g_xg_y+w\Bigl(\frac nd\gamma\Bigr)^2=\frac{1+\gamma^2}{2}. \]
+\end{lemma}
+
+\begin{proof}
+The $Q_x$ are $n=\dim\Sym_d$ linearly independent elements, so they form a basis. For
+$R=\frac12(p_ip_j^{\mathsf T}+p_jp_i^{\mathsf T})$ we have $\langle Q_x,R\rangle=g_x$, so
+$\langle R,R\rangle=g^{\mathsf T}H^{-1}g$, and $\langle R,R\rangle=(1+\gamma^2)/2$. Finally
+$\sum_xg_x=(G^2)_{ij}=(n/d)\gamma$.
+\end{proof}
+
+\paragraph{Counting.}
+Fix a non-adjacent pair $i,j$. Split the other vertices into cells $C_0,\dots,C_3$ according to adjacency to $i$
+(bit~0) and to $j$ (bit~1), with sizes $(n-2-2k+\mu,\,k-\mu,\,k-\mu,\,\mu)$. On $C_B$ the function $g$ is constant:
+$a^2,ab,ab,b^2$; and $g_i=g_j=a$. Let $E_{BC}$ be the number of ordered pairs $(x,y)\in C_B\times C_C$ with $x\sim y$.
+Every $x\in C_B$ has $k-B_0-B_1$ neighbours outside $\{i,j\}$, and $\lambda$ or $\mu$ common neighbours with each
+anchor. These twelve equations determine the symmetric matrix $E$ up to one parameter $z=E_{33}$, which is twice the
+number of edges among the common neighbours of $i$ and $j$. Since
+\[ \sum_{x,y}A_{xy}g_xg_y=\sum_{B,C}E_{BC}\,g_Bg_C+2a\sum_B|C_B|\,g_B(B_0+B_1), \]
+the lemma becomes one linear equation in $z$.
+
+\paragraph{The numbers.} Here $h_0,h_r,h_s$ are the eigenvalues of $H$ on $\mathbf 1$, the $r$- and the $s$-eigenspace.
+\[
+\begin{array}{lcc}
+\toprule
+ & (1275,546,281,198) & (1081,594,359,286)\\
+\midrule
+d & 50 & 46\\
+a,\ b & -11/91,\ 29/182 & -13/81,\ 7/54\\
+h_0=n/d & 51/2 & 47/2\\
+h_r & 63699/33124 & 2491/8748\\
+h_s & 7803/8281 & 2209/2187\\
+u & 3370367/3248649 & 130491/117077\\
+v & -57967/9745947 & 3645/117077\\
+w & 5731/3248649 & -2119/117077\\
+\text{forced }z,\ i\not\sim j & 171090/7 & 277266/5\\
+\text{forced }z,\ i\sim j & 322640/7 & 415756/5\\
+\bottomrule
+\end{array}
+\]
+For non-adjacent pairs the linear equations are $867(7z-171090)=0$ and $2209(5z-277266)=0$. The value of $z$ is not
+an integer, which is a contradiction. The adjacent pairs, treated in the same way with cell sizes
+$(n-2k+\lambda,\,k-1-\lambda,\,k-1-\lambda,\,\lambda)$ and $g_i=g_j=b$, give a second, independent contradiction.
+\qed
+
+\paragraph{Remarks.}
+For a non-adjacent pair, the forced value of $z$ is Sims' four-vertex count; see Brouwer and Van Maldeghem,
+\emph{Strongly Regular Graphs}, \S8.16. Here it is forced only by $n=\dim\Sym_d$. If $n<d(d+1)/2$, the same computation
+gives Bessel's inequality $\langle R,R\rangle\ge g^{\mathsf T}H^{-1}g$, a one-sided bound on $z$. The program
+\texttt{verify.py} (Python standard library, exact rational arithmetic) checks every number above. It also checks the
+cell equations and the identity of the lemma on all $5988$ vertex pairs of the triangular graphs $T(5),\dots,T(12)$,
+which satisfy $n=d(d+1)/2$. Both parameter sets were listed as open in Brouwer's table on 19 November 2026.
+
+\paragraph{Use of AI.} The argument was found by an AI research agent working on the author's project, and its numbers
+were re-derived independently with Claude (Anthropic); the author is responsible for the content.
+\end{document}
