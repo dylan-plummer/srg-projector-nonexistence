@@ -21,10 +21,10 @@ Hence there is none with the complementary parameters $(1275,728,379,464)$ or $(
 \section{Background: eigenvalues and the spherical embedding}
 
 A graph $\Gamma$ on $n$ vertices is \emph{strongly regular} with parameters $(n,k,\lambda,\mu)$ if every vertex has
-$k$ neighbours, every two adjacent vertices have $\lambda$ common neighbours, and every two non-adjacent vertices have
-$\mu$ common neighbours. In terms of the adjacency matrix $A$ and the all-ones matrix $J$, this says
+$k$ neighbors, every two adjacent vertices have $\lambda$ common neighbors, and every two non-adjacent vertices have
+$\mu$ common neighbors. In terms of the adjacency matrix $A$ and the all-ones matrix $J$, this says
 \[ A\one=k\one,\qquad A^2=kI+\lambda A+\mu(J-I-A), \]
-since $(A^2)_{xy}$ counts the common neighbours of $x$ and $y$. On vectors orthogonal to $\one$, $J$ acts as $0$, so
+since $(A^2)_{xy}$ counts the common neighbors of $x$ and $y$. On vectors orthogonal to $\one$, $J$ acts as $0$, so
 every eigenvalue $\theta$ of $A$ other than $k$ satisfies $\theta^2=(\lambda-\mu)\theta+(k-\mu)$. Thus $A$ has exactly
 two further eigenvalues $r>0>s$~\cite[\S1.1.4]{BvM}, and $\mathbb R^n$ splits orthogonally into $\langle\one\rangle$ and
 the eigenspaces $V_r$ and $V_s$. Let $d=\dim V_r$. For our graphs these data are
@@ -82,10 +82,10 @@ $\sum_xg_x=(G^2)_{ij}=(n/d)\gamma$, which gives the $w$ term.
 Fix a non-adjacent pair $i,j$. Then $\gamma=a$ and $g_i=g_j=a$. Split the remaining vertices into four cells
 $C_0,\dots,C_3$: $x\in C_B$ when bit~0 of $B$ says whether $x\sim i$ and bit~1 whether $x\sim j$. The sizes are
 $(n-2-2k+\mu,\,k-\mu,\,k-\mu,\,\mu)$, and on the cells $g$ takes the values $a^2,ab,ab,b^2$. Let $E_{BC}$ be the number
-of ordered pairs $(x,y)\in C_B\times C_C$ with $x\sim y$. Every $x\in C_B$ has $k-B_0-B_1$ neighbours outside
-$\{i,j\}$, and $\lambda$ or $\mu$ common neighbours with $i$ and with $j$. These twelve linear equations determine the
+of ordered pairs $(x,y)\in C_B\times C_C$ with $x\sim y$. Every $x\in C_B$ has $k-B_0-B_1$ neighbors outside
+$\{i,j\}$, and $\lambda$ or $\mu$ common neighbors with $i$ and with $j$. These twelve linear equations determine the
 symmetric $4\times4$ matrix $E$ up to the single unknown $z=E_{33}$, which is twice the number of edges among the
-common neighbours of $i$ and $j$. Since
+common neighbors of $i$ and $j$. Since
 \[ \sum_{x,y}A_{xy}g_xg_y=\sum_{B,C}E_{BC}\,g_Bg_C+2a\sum_B|C_B|\,g_B(B_0+B_1), \]
 Lemma~\ref{lem} becomes one linear equation in $z$. With the exact values
 \[
@@ -110,8 +110,8 @@ $z=322640/7$ and $z=415756/5$: a second, independent contradiction. \qed
 If $n=d(d+1)/2$, $H$ is positive definite and $h_r\ne h_s$, then $v\ne0$, the coefficient of $z$ in the lemma is
 nonzero, and every graph with these parameters satisfies the $4$-vertex condition of Hestenes and Higman~\cite{HH}.
 The hypothesis $h_r\ne h_s$ is needed: $T(8)$ has $n=28=7\cdot8/2$ and $H$ positive definite, but $h_r=h_s$, and the
-Chang graphs with the same parameters do not satisfy the $4$-vertex condition (common neighbourhoods of adjacent pairs
-carry $8$, $9$ or $10$ edges). For our two parameter sets, the number of edges among the common neighbours of $x,y$
+Chang graphs with the same parameters do not satisfy the $4$-vertex condition (common neighborhoods of adjacent pairs
+carry $8$, $9$ or $10$ edges). For our two parameter sets, the number of edges among the common neighbors of $x,y$
 would be a constant $\alpha$ for
 adjacent and $\beta$ for non-adjacent pairs, namely half the forced values of $z$. They satisfy Sims' relation
 $k(\binom\lambda2-\alpha)=\beta(n-k-1)$~\cite[Prop.~8.16.1]{BvM}, with both sides equal to $8896680$ and $67375638/5$.
@@ -130,7 +130,7 @@ $n=d(d+1)/2$ (for $T(8)$, where $h_r=h_s$, this checks the identity but not a fo
 It was independently re-derived and audited, and the verification program was written, by Claude Opus 5.5
 (Anthropic). The author is responsible for the content.
 
-\paragraph{Acknowledgement.} We thank A. Kova\v{l} for checking the whole argument independently with his own exact
+\paragraph{Acknowledgment.} We thank A. Kova\v{l} for checking the whole argument independently with his own exact
 computations, and for contributing to the remarks above: the need for the hypothesis $h_r\ne h_s$, the case
 $\mathrm{srg}(351,140,73,44)$, and the observation that every forced cell count is non-integral.
 

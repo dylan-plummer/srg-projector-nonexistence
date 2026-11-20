@@ -90,7 +90,7 @@ def cell_equations(n, k, lam, mu, adjacent):
                 if (C >> t) & 1:
                     row[PAIRS.index((min(B, C), max(B, C)))] += 1
             target = (lam if bt else mu) - (other if adjacent else 0)
-            rows.append(row + [F(sz[B] * target)])               # common neighbours of x and anchor t
+            rows.append(row + [F(sz[B] * target)])               # common neighbors of x and anchor t
     return rows
 
 

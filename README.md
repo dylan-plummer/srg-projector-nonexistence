@@ -5,8 +5,8 @@ A short note proving that there are no strongly regular graphs with parameters (
 
 In both cases the number of vertices equals d(d+1)/2, where d is the multiplicity of the positive eigenvalue. The
 vertex projectors of the spherical embedding then form a basis of the symmetric d x d matrices. Expanding a
-symmetrised product of two vertex vectors in this basis forces a non-integral number of edges among the common
-neighbours of a vertex pair.
+symmetrized product of two vertex vectors in this basis forces a non-integral number of edges among the common
+neighbors of a vertex pair.
 
 | file | contents |
 |---|---|
