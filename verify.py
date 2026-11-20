@@ -145,6 +145,16 @@ def main():
         lhs, rhs = k * (F(lam * (lam - 1), 2) - al), be * (n - k - 1)
         assert lhs == rhs
         print(f'   Sims relation k(C(lam,2) - alpha) = beta(n-k-1): both sides {lhs}')
+    print('== The same criterion on srg(351,140,73,44) (excluded earlier by Liao and Yu) and srg(703,182,81,35)')
+    for p in [(351, 140, 73, 44), (703, 182, 81, 35)]:
+        D = data(*p)
+        assert p[0] == D['d'] * (D['d'] + 1) // 2 and min(D['h']) > 0 and D['h'][1] != D['h'][2]
+        zs = [forced_z(*p, adj)[0] for adj in (False, True)]
+        print(f'   srg{p}: forced edge counts beta = {zs[0] / 2}, alpha = {zs[1] / 2}  ->  ' +
+              ('non-integral: excluded' if any(z.denominator != 1 for z in zs) else 'integral: no conclusion'))
+    D8 = data(28, 12, 6, 4)
+    assert D8['h'][1] == D8['h'][2] and D8['uvw'][1] == 0
+    print('   T(8): h_r = h_s, v = 0: the identity does not involve z (no forced value)')
     print('== Control: triangular graphs T(m), all pairs')
     total = 0
     for m in range(5, 13):

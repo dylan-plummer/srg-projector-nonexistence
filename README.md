@@ -11,7 +11,7 @@ neighbours of a vertex pair.
 | file | contents |
 |---|---|
 | `note.tex`, `note.pdf` | the note (about 2.5 pages, self-contained for a reader with linear algebra) |
-| `verify.py` | exact check of every number in the note, and of the identity on all 5988 vertex pairs of T(5), ..., T(12); Python 3 standard library only |
+| `verify.py` | exact check of every number in the note (incl. srg(351,140,73,44) and srg(703,182,81,35)), and of the identity on all 5988 vertex pairs of T(5), ..., T(12); Python 3 standard library only |
 
 ```
 python3 verify.py          # about 10 seconds, ends with "ALL CHECKS PASSED"

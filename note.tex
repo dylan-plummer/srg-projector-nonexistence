@@ -97,29 +97,41 @@ a,\ b & -11/91,\ 29/182 & -13/81,\ 7/54\\
 h_0,\ h_r,\ h_s & 51/2,\ 63699/33124,\ 7803/8281 & 47/2,\ 2491/8748,\ 2209/2187\\
 u,\ v,\ w & \tfrac{3370367}{3248649},\ -\tfrac{57967}{9745947},\ \tfrac{5731}{3248649}
  & \tfrac{130491}{117077},\ \tfrac{3645}{117077},\ -\tfrac{2119}{117077}\\
-\text{equation} & 867(7z-171090)=0 & 2209(5z-277266)=0\\
+\text{equation (up to a nonzero factor)} & 7z-171090=0 & 5z-277266=0\\
 \bottomrule
 \end{array}
 \]
-we get $z=171090/7$ and $z=277266/5$. Neither is an integer, which proves the theorem. Adjacent pairs, treated in
+we get $z=171090/7$ and $z=277266/5$. Neither is an integer, which proves the theorem. In fact every entry of $E$ is
+$\pm z$ plus an integer, so none of the forced cell counts is an integer. Adjacent pairs, treated in
 the same way with $\gamma=g_i=g_j=b$ and cell sizes $(n-2k+\lambda,\,k-1-\lambda,\,k-1-\lambda,\,\lambda)$, force
 $z=322640/7$ and $z=415756/5$: a second, independent contradiction. \qed
 
 \paragraph{Remarks.}
-The argument shows that a graph with $n=d(d+1)/2$ and $H$ positive definite satisfies the $4$-vertex condition of
-Hestenes and Higman~\cite{HH}. The number of edges among the common neighbours of $x,y$ is a constant $\alpha$ for
+If $n=d(d+1)/2$, $H$ is positive definite and $h_r\ne h_s$, then $v\ne0$, the coefficient of $z$ in the lemma is
+nonzero, and every graph with these parameters satisfies the $4$-vertex condition of Hestenes and Higman~\cite{HH}.
+The hypothesis $h_r\ne h_s$ is needed: $T(8)$ has $n=28=7\cdot8/2$ and $H$ positive definite, but $h_r=h_s$, and the
+Chang graphs with the same parameters do not satisfy the $4$-vertex condition (common neighbourhoods of adjacent pairs
+carry $8$, $9$ or $10$ edges). For our two parameter sets, the number of edges among the common neighbours of $x,y$
+would be a constant $\alpha$ for
 adjacent and $\beta$ for non-adjacent pairs, namely half the forced values of $z$. They satisfy Sims' relation
 $k(\binom\lambda2-\alpha)=\beta(n-k-1)$~\cite[Prop.~8.16.1]{BvM}, with both sides equal to $8896680$ and $67375638/5$.
 The contradiction is that $\alpha$ and $\beta$ are not integers. The bound $n\le\dim\Sym_d$ for linearly independent
 projectors is the same mechanism as the absolute bound $n\le d(d+3)/2$~\cite{DGS}, \cite{CGS}, \cite[\S1.3.7]{BvM}.
+The same computation excludes $\mathrm{srg}(351,140,73,44)$, where $n=26\cdot27/2$ and $\alpha=8241/5$,
+$\beta=3266/5$; this parameter set was excluded earlier by Liao and Yu with a multipoint semidefinite
+bound~\cite{LY}, and the argument here gives a short proof that can be checked by hand. For
+$\mathrm{srg}(703,182,81,35)$, also with $n=d(d+1)/2$, the forced values are integers and the method gives nothing.
 For $n<d(d+1)/2$ the computation gives only Bessel's inequality $\langle R,R\rangle\ge g^{\mathsf T}H^{-1}g$. The program
 \texttt{verify.py} (Python standard library, exact arithmetic) checks every number above, and checks the cell equations
 and Lemma~\ref{lem} on all $5988$ vertex pairs of the triangular graphs $T(5),\dots,T(12)$, which also have
-$n=d(d+1)/2$. Both parameter sets were listed as open in Brouwer's table~\cite{table} on 19 November 2026.
+$n=d(d+1)/2$ (for $T(8)$, where $h_r=h_s$, this checks the identity but not a forced value of $z$). Both parameter sets were listed as open in Brouwer's table~\cite{table} on 19 November 2026.
 
 \paragraph{Use of AI.} The proof was found by GPT 6.1 Sol (OpenAI), an AI research agent working on the author's project.
 It was independently re-derived and audited, and the verification program was written, by Claude Opus 5.5
 (Anthropic). The author is responsible for the content.
+
+\paragraph{Acknowledgement.} A. Kova\v{l} independently re-derived every step with his own exact code, with controls on
+$11220$ vertex pairs of $T(5),\dots,T(12)$ and their complements, and made the remarks incorporated above.
 
 \begin{thebibliography}{9}\small
 \bibitem{BvM} A.~E. Brouwer and H. Van Maldeghem, \emph{Strongly Regular Graphs}, Encyclopedia of Mathematics and
@@ -130,6 +142,8 @@ its Applications 182, Cambridge University Press, 2022.
 subconstituents, \emph{J. Algebra} 55 (1978), 257--280.
 \bibitem{DGS} P. Delsarte, J.~M. Goethals and J.~J. Seidel, Spherical codes and designs, \emph{Geom. Dedicata} 6
 (1977), 363--388.
+\bibitem{LY} Z.-Q. Liao and W.-H. Yu, Nonexistence of strongly regular graphs via multipoint spherical
+semidefinite bounds, preprint, arXiv:2609.37901, 2026.
 \bibitem{HH} M.~D. Hestenes and D.~G. Higman, Rank 3 groups and strongly regular graphs, in: \emph{Computers in
 Algebra and Number Theory}, SIAM-AMS Proc. IV, Amer. Math. Soc., Providence, RI, 1971, 141--159.
 \end{thebibliography}
